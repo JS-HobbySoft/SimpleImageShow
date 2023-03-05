@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">SimpleImageShow</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Initial settings</string>
+    <string name="second_fragment_label">Image Show</string>
+    <string name="next">Start image show</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Choose dwell time on each image (seconds)</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="image_display_content_desc">Image Display</string>
+    <string name="floating_action_button">Change me later</string>
+    <string name="choose_directory">Choose directory</string>
+    <string name="delay_time">1</string>
+    <string name="delay_time_between_image_changes">Delay time between image changes</string>
+    <string name="choose_background_color">choose background color</string>
+    <string name="choose_background_color2">Choose background color</string>
+
+    <string-array name="delaySeconds">
+        <item>"1"</item>
+        <item>"2"</item>
+        <item>"3"</item>
+        <item>"4"</item>
+        <item>"5"</item>
+        <item>"6"</item>
+        <item>"7"</item>
+        <item>"8"</item>
+        <item>"9"</item>
+        <item>"10"</item>
+    </string-array>
+
+    <string-array name="bgColors">
+        <item>"white"</item>
+        <item>"black"</item>
+        <item>"blue"</item>
+        <item>"red"</item>
+        <item>"green"</item>
+    </string-array>
+</resources>
