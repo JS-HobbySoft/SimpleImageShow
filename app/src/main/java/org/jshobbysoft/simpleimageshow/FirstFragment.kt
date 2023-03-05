@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2023.  JS Hobbysoft  All rights reserved.
+ */
+
 package org.jshobbysoft.simpleimageshow
 
 import android.content.Intent
