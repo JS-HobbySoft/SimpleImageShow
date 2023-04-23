@@ -108,10 +108,18 @@ class FirstFragment : Fragment() {
             }
         }
 
-//      Launch image viewing
+//      Set full screen mode if desired
+        var userFullScreenVar = sharedPreferences.getBoolean("userFullScreen",false)
+        binding.fullscreenSwitch.isChecked = userFullScreenVar
+        binding.fullscreenSwitch.setOnCheckedChangeListener { _, isChecked ->
+                userFullScreenVar = isChecked
+        }
+
+//      Launch image show
         binding.buttonFirst.setOnClickListener {
             sharedPreferences.edit().putLong("userDelayTime", item).apply()
             sharedPreferences.edit().putString("userBgColor", item2).apply()
+            sharedPreferences.edit().putBoolean("userFullScreen",userFullScreenVar).apply()
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 

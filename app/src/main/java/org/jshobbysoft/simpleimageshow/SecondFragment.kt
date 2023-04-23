@@ -16,6 +16,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import androidx.documentfile.provider.DocumentFile
 import org.jshobbysoft.simpleimageshow.databinding.FragmentSecondBinding
 
@@ -30,6 +33,28 @@ class SecondFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val window = requireActivity().window
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        val windowInsetsController =
+            WindowCompat.getInsetsController(window, window.decorView)
+        // Configure the behavior of the hidden system bars.
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+
+        // Show the images fullscreen button if desired
+        val sharedPreferences =
+            androidx.preference.PreferenceManager.getDefaultSharedPreferences(requireActivity() /* Activity context */)
+
+        windowInsetsController.show(WindowInsetsCompat.Type.systemBars())
+        if (sharedPreferences.getBoolean("userFullScreen",false)) {
+            windowInsetsController.hide(WindowInsetsCompat.Type.systemBars())
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -140,7 +165,17 @@ class SecondFragment : Fragment() {
 
     override fun onDestroyView() {
         super.onDestroyView()
-        // Kill looper to avoid NPE when navigating back to first fragment
+
+//      take app out of immersive mode
+        val window = requireActivity().window
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        val windowInsetsController =
+            WindowCompat.getInsetsController(window, window.decorView)
+        windowInsetsController.systemBarsBehavior =
+            WindowInsetsControllerCompat.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+        windowInsetsController.show(WindowInsetsCompat.Type.systemBars())
+
+//      Kill looper to avoid NPE when navigating back to first fragment
         mainHandler.removeCallbacksAndMessages(null)
         _binding = null
     }

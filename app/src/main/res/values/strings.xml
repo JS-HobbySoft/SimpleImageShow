@@ -37,4 +37,7 @@
         <item>"red"</item>
         <item>"green"</item>
     </string-array>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="full_screen_toggle">Show images in full screen</string>
 </resources>

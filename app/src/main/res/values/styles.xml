@@ -1,0 +1,11 @@
+<!--
+  ~ Copyright (c) 2023.  JS Hobbysoft  All rights reserved.
+  -->
+
+<resources>
+
+    <style name="Widget.Theme.SimpleImageShow.ButtonBar.Fullscreen" parent="">
+        <item name="android:background">@color/black_overlay</item>
+        <item name="android:buttonBarStyle">?android:attr/buttonBarStyle</item>
+    </style>
+</resources>
