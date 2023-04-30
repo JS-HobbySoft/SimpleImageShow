@@ -1,0 +1,2 @@
+Show a directory of images as a slide show
+
